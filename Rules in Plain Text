@@ -1,0 +1,43 @@
+Flippant; a Dice Game
+
+PLAYERS :
+  For 2 to Too Many players
+
+DICE :
+  Each player starts with a set of seven dice; traditionally 1d4 , 1d6 , 1d8 , 1d10 , 1d12 , 1d20 plus 1dx
+  'twin' of the standard six, but alternately any set of seven dice, chosen by the player before each new game. 
+
+ROUNDS :
+  Each game has three rounds; in each round all players select and roll two of the dice
+  remaining in their set. Scoring depends on the dice selected, and the current state of the
+  game. If, after the third round, any players are tied, play proceeds with tie-breaker
+  rounds.
+
+  Rounds 1-3 : 
+    Each player picks two dice from their unused set, and rolls. Scoring varies
+    based on dice selected, and then both dice are discarded.
+
+  Scoring, unmatched dice : 
+    Difference between die (more sides - fewer sides)
+      Positive : Add difference to cumulative score
+      Zero (Match) : Return one die from discard pile (or retain one from this roll)
+      Negative : Add difference to cumulative score. Flip game scoring high/low score wins.
+
+  Scoring, matched "Twin" dice :
+    Count State : Add 2x difference between dice to cumulative score.
+    Flip State : Add 1/2x difference (rounded down) to cumulative score.
+      *Twin dice cannot flip state
+      **Matching roll adds zero to score, return one die from discard pile
+
+  Tie-Breaker Rounds : 
+    If two or more players have the same score after three rounds,
+    those players select one die from their remaining set to roll. Game state from Round 3
+    still applies, so highest roll for Count or lowest roll for Flip wins. If two or more players roll
+    the winning number, other players are eliminated, and remaining players roll again until
+    they are eliminated, or only one player remains. The remaining player wins the game.
+
+STATES :
+  Games begin in the Count state, and flip between states if an odd number of players roll
+  a Flip condition during the current round.
+    Count : The highest cumulative score after three rounds wins
+    Flip : The lowest cumulative score after three rounds wins
